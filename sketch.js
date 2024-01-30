@@ -11,11 +11,7 @@ function setup() {
     // canvas size in pixels
     const canvasSize = 800;
     // list of possible cell sizes in pixels - based on squareSize
-    const possibleCellSizes = [squareSize, 2 * squareSize, 3 * squareSize];
-    
-    //calculate width and height
-    const width = squareSize;
-    const height = squareSize;
+    const possibleCellSizes = [squareSize, squareSize, squareSize, 2 * squareSize, 3 * squareSize, 4 * squareSize];
 
     const borderColor = color("#b4acb1");
 
@@ -25,15 +21,15 @@ function setup() {
     let x = 0;
     let y = 0;
 
-    while(y < canvasSize) {
-        
+    while (y < canvasSize) {
+
         x = 0;
 
         //generate a random height from the possible cell sizes
         let actualHeight = random(possibleCellSizes);
-        if(y + actualHeight > canvasSize) actualHeight = canvasSize - y;
-        
-        while(x < canvasSize){
+        if (y + actualHeight > canvasSize) actualHeight = canvasSize - y;
+
+        while (x < canvasSize) {
 
             //choose random hex code from all the possible colors
             const colorCode = random(possibleColors);
@@ -50,7 +46,7 @@ function setup() {
 
             //generate a random witdth from the possible cell sizes
             let actualWidth = random(possibleCellSizes);
-            if(x + actualWidth > canvasSize) actualWidth = canvasSize - x;
+            if (x + actualWidth > canvasSize) actualWidth = canvasSize - x;
 
             // rect(x, y, width, height) 
             // x = position of the left of the square
@@ -62,7 +58,7 @@ function setup() {
             //update x
             x = x + actualWidth;
         }
-        
+
         //update y
         y = y + actualHeight;
     }
