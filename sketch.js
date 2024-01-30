@@ -12,6 +12,10 @@ function setup() {
     const cellNumber = 10;
     // canvas size in pixels
     const canvasSize = squareSize * cellNumber;
+    
+    //calculate width and height
+    const width = squareSize;
+    const height = squareSize;
 
     createCanvas(canvasSize, canvasSize);
     background(220);
@@ -20,6 +24,9 @@ function setup() {
     let y = 0;
 
     while(y < canvasSize) {
+        
+        x = 0;
+        
         while(x < canvasSize){
 
             //choose random hex code from all the possible colors
@@ -31,20 +38,18 @@ function setup() {
             // use fill to fill all the square with one color
             fill(myColor)
 
-            //calculate horizontal and vertical position in pixels
-            const x = row * squareSize;
-            const y = column * squareSize;
-
-            //calculate width and height
-            const width = squareSize;
-            const height = squareSize;
-
             // rect(x, y, width, height) 
             // x = position of the left of the square
             // y = position of the top of the square
             // width = width in pixels of the rectangle
             // height = height in pixels of the rectangle 
             rect(x, y, width, height);
+
+            //update x
+            x = x + width;
         }
+        
+        //update y
+        y = y + height;
     }
 }
