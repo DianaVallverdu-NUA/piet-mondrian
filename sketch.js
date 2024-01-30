@@ -1,4 +1,10 @@
 function setup() {
+    // "#f3f3f3" - white
+    // #f10d0d" - red
+    // "#f9e218" - yellow
+    // "#292928" - black
+    // "#0d7fbe"
+    const possibleColors = ["#f3f3f3", "#f10d0d", "#f9e218", "#292928", "#0d7fbe"];
 
     //size of each square in pixels
     const squareSize = 50;
@@ -10,13 +16,14 @@ function setup() {
     createCanvas(canvasSize, canvasSize);
     background(220);
 
-    for(let row = 0; row < cellNumber; row++) {
-        for(let column = 0; column < cellNumber; column++) {
-            const red = random(255);
-            const green = random(255);
-            const blue = random(255);
+    for (let row = 0; row < cellNumber; row++) {
+        for (let column = 0; column < cellNumber; column++) {
 
-            const myColor = color(red, green, blue);
+            //choose random hex code from all the possible colors
+            const colorCode = random(possibleColors);
+
+            //store color object in myColor
+            const myColor = color(colorCode);
 
             // use fill to fill all the square with one color
             fill(myColor)
@@ -28,7 +35,7 @@ function setup() {
             //calculate width and height
             const width = squareSize;
             const height = squareSize;
-            
+
             // rect(x, y, width, height) 
             // x = position of the left of the square
             // y = position of the top of the square
