@@ -16,8 +16,11 @@ function setup() {
     createCanvas(canvasSize, canvasSize);
     background(220);
 
-    for (let row = 0; row < cellNumber; row++) {
-        for (let column = 0; column < cellNumber; column++) {
+    let x = 0;
+    let y = 0;
+
+    while(y < canvasSize) {
+        while(x < canvasSize){
 
             //choose random hex code from all the possible colors
             const colorCode = random(possibleColors);
